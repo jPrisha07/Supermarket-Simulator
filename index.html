@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermarket Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <div id="game-ui">
+        <h1>🛒 Supermarket Simulator</h1>
+        <p>Find everything on your shopping list!</p>
+    </div>
+    <div id="wallet">💰 Cash: ₹1,000</div>
+    <div id="crosshair">+</div>
+    <div id="instructions">WASD to move , Mouse to look</div>
+    <div id="interaction-prompt"></div>
+   <script type="module" src="script.js"></script>
+   
+<div id="game-status">
+    <div class="hud-heading">
+        <span class="hud-icon">🛒</span>
+        <div>
+            <h2>My little shopping list</h2>
+            <p class="hud-subtitle">A little shop, a little joy ✿</p>
+        </div>
+    </div>
+
+    <div id="shopping-items"></div>
+
+    <div class="progress-section">
+        <div id="shopping-progress">0 / 3 collected</div>
+        <div class="progress-track">
+            <div id="shopping-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="hud-total">
+        <span>Basket total</span>
+        <strong id="shopping-total">₹0</strong>
+    </div>
+</div>
+
+<div id="interaction-prompt"></div>
+<div id="game-message"></div>
+
+<div id="interaction-prompt"></div>
+<div id="game-message"></div>
+<button id="toggle-shopping-list">🛒 My shopping list</button>
+</body>
+</html>

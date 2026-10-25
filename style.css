@@ -1,0 +1,387 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: #d9e4d5;
+}
+ 
+#game-ui {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    padding: 16px 22px;
+    border: 2px solid #75401c;
+    border-radius: 14px;
+    background: #fbeed7;
+    color: #75401c;
+}
+
+#game-ui h1 {
+    margin: 0 0 8px;
+    font-size: 22px;
+}
+
+#game-ui p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#crosshair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 26px;
+    pointer-events: none;
+}
+
+#instructions {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #75401c;
+    color: white;
+}
+#interaction-prompt {
+    position: fixed;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    color: white;
+    background: rgba(35, 28, 22, 0.85);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    display: none;
+    pointer-events: none;
+}
+
+#game-status {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 230px;
+    padding: 18px;
+    background: rgba(251, 238, 215, 0.95);
+    color: #75401c;
+    border: 2px solid #75401c;
+    border-radius: 14px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+#game-status h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+#shopping-items p {
+    margin: 8px 0;
+}
+
+#shopping-progress {
+    font-weight: bold;
+    border-top: 1px solid #d4b99c;
+    padding-top: 10px;
+}
+
+#interaction-prompt {
+    position: fixed;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    background: rgba(35, 28, 22, 0.9);
+    color: white;
+    border-radius: 10px;
+    z-index: 5;
+    display: none;
+    pointer-events: none;
+}
+
+#game-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 100;
+    width: max-content;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
+
+    display: none;
+    padding: 18px 26px;
+
+    background: #fff9ed;
+    color: #75401c;
+    border: 2px solid #e7d5b8;
+    border-radius: 18px;
+
+    box-shadow: 0 10px 35px rgba(46, 20, 2, 0.2);
+
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+#wallet {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 12px 18px;
+    background: rgba(251, 238, 215, 0.95);
+    color: #75401c;
+    border: 2px solid #75401c;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 17px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* =====================================
+   CUTE SUPERMARKET SHOPPING HUD
+===================================== */
+
+#game-status {
+    position: fixed;
+    top: 110px;
+    left: 20px;
+    z-index: 10;
+
+    width: 310px;
+    box-sizing: border-box;
+    padding: 20px;
+
+    background: #fff9ed;
+    color: #75401c;
+
+    border: 2px solid #e7d5b8;
+    border-radius: 22px;
+
+    box-shadow: 0 8px 25px rgba(67, 43, 24, 0.14);
+
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.hud-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.hud-icon {
+    display: grid;
+    place-items: center;
+
+    width: 46px;
+    height: 46px;
+
+    background: #f8dfed;
+    border-radius: 15px;
+    font-size: 25px;
+}
+
+.hud-heading h2 {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.3;
+}
+
+.hud-subtitle {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: #a17c61;
+}
+
+#shopping-items {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.shopping-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 11px 10px;
+
+    background: #ffffff;
+    border: 1px solid #eee2ce;
+    border-radius: 13px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.item-check {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+
+    width: 22px;
+    height: 22px;
+
+    border: 1.5px solid #c9b69b;
+    border-radius: 7px;
+
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.item-name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.item-price {
+    font-size: 13px;
+    font-weight: bold;
+    color: #9b7553;
+}
+
+.shopping-item.is-collected {
+    background: #e9f1e7;
+    border-color: #c8ddc3;
+}
+
+.shopping-item.is-collected .item-check {
+    background: #789778;
+    border-color: #789778;
+}
+
+.shopping-item.is-collected .item-name {
+    color: #668066;
+    text-decoration: line-through;
+}
+
+.shopping-item.is-collected .item-price {
+    color: #668066;
+}
+
+.progress-section {
+    margin-top: 20px;
+}
+
+#shopping-progress {
+    margin-bottom: 9px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #977454;
+}
+
+.progress-track {
+    width: 100%;
+    height: 9px;
+
+    overflow: hidden;
+    background: #eadfce;
+    border-radius: 99px;
+}
+
+#shopping-progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #94b497,
+        #dba7c9
+    );
+
+    border-radius: inherit;
+    transition: width 0.35s ease;
+}
+
+.hud-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 18px;
+    padding-top: 15px;
+
+    border-top: 1px dashed #ddc9ab;
+
+    font-size: 13px;
+}
+
+.hud-total strong {
+    font-size: 20px;
+    color: #75401c;
+}
+
+/* Keep the HUD usable on smaller screens */
+@media (max-width: 600px) {
+    #game-status {
+        top: 100px;
+        left: 10px;
+        width: min(290px, calc(100vw - 20px));
+        padding: 15px;
+    }
+}
+#game-status {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 20;
+    width: min(360px, calc(100vw - 32px));
+    box-sizing: border-box;
+
+    /* The rest of your existing styling stays here */
+}
+#game-status {
+    display: none;
+}
+
+#game-status.is-visible {
+    display: block;
+}
+#toggle-shopping-list {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+
+    padding: 12px 22px;
+    border: 2px solid #e7d5b8;
+    border-radius: 18px;
+
+    background: #fff9ed;
+    color: #75401c;
+
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(46, 20, 2, 0.15);
+}
+
+#toggle-shopping-list:hover {
+    background: #f8dfed;
+}
+
+#game-status.is-visible {
+    display: block;
+}
